@@ -44,7 +44,7 @@ export default function FAQ() {
           <div className="lg:sticky lg:top-32">
             <SectionLabel>Perguntas frequentes</SectionLabel>
             <h2 className="text-[1.9rem] font-semibold leading-[1.2] text-white sm:text-[2.2rem]">
-              Dúvidas antes de apresentar um caso.
+              Ficou com alguma dúvida sobre o seu caso?
             </h2>
             <p className="mt-4 text-[15px] leading-7 text-muted">
               Se a sua dúvida não estiver aqui, me chame. A conversa resolve mais rápido.
