@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# build
+.next/
+out/
+build/
+
+# misc
+.DS_Store
+*.log
+.env*.local
+
+# typescript
+*.tsbuildinfo

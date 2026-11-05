@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Poppins", sans-serif;
+  --gold: #c8a55c;
+  --gold-deep: #9e7d3f;
+  --gold-light: #ddc27f;
+  --ivory: #f4efe5;
+  --champagne: #d8c59a;
+  --olive: #303629;
+  --olive-deep: #1b2019;
+  --taupe: #70675c;
+  --taupe-deep: #211e1a;
+  --warm-stone: #aaa095;
+  --muted: #948f85;
+  --line: rgba(229, 210, 165, 0.14);
+  --surface: #11100e;
+  --bg: #080808;
+  --header-h: 72px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ivory);
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--surface);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 48%, var(--gold-light) 100%);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 55%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.olive-surface {
+  background: linear-gradient(160deg, var(--olive) 0%, var(--olive-deep) 70%);
+}
+
+.taupe-surface {
+  background: linear-gradient(180deg, var(--taupe-deep) 0%, #171512 100%);
+}
+
+.ivory-surface {
+  background: linear-gradient(180deg, var(--ivory) 0%, #ece4d4 100%);
+}
+
+.olive-deep-surface {
+  background: linear-gradient(200deg, var(--olive) 0%, var(--olive-deep) 55%, #10130f 100%);
+}
+
+.watermark-number {
+  color: rgba(216, 197, 154, 0.04);
+}
