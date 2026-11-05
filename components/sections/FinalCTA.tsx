@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
-import SectionLabel from "@/components/ui/SectionLabel";
-import Button from "@/components/ui/Button";
 import { fadeUp, viewport } from "@/lib/motion";
 import { SITE, whatsappLink, WHATSAPP_MENSAGENS } from "@/lib/config";
 
@@ -29,7 +27,7 @@ export default function FinalCTA() {
   ];
 
   return (
-    <section id="contato" className="olive-deep-surface relative overflow-hidden py-14 sm:py-20 md:py-24">
+    <section id="contato" className="relative overflow-hidden bg-bg py-14 sm:py-20 md:py-24">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -39,45 +37,18 @@ export default function FinalCTA() {
       />
 
       <div className="relative mx-auto grid w-full max-w-page grid-cols-1 gap-8 px-6 md:px-12 lg:grid-cols-12 lg:gap-14">
-        <motion.div
+        <motion.ul
           variants={fadeUp}
           custom={0}
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="flex flex-col items-start lg:col-span-6"
-        >
-          <SectionLabel>Contato</SectionLabel>
-          <h2 className="text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.6rem]">
-            Ficou com alguma dúvida sobre o seu caso?
-          </h2>
-          <p className="mt-5 max-w-[480px] text-[16px] leading-[1.75] text-muted sm:text-[17px]">
-            Explique brevemente a situação e eu avalio se a perícia contábil pode ajudar. A análise
-            inicial serve para eu entender o contexto e orientar o próximo passo com clareza.
-          </p>
-          <div className="mt-7 w-full sm:w-auto">
-            <Button
-              href={whatsappLink(WHATSAPP_MENSAGENS.padrao)}
-              target="_blank"
-              className="whitespace-nowrap sm:min-w-[280px]"
-            >
-              Apresentar um caso
-            </Button>
-          </div>
-        </motion.div>
-
-        <motion.ul
-          variants={fadeUp}
-          custom={1}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-          className="flex flex-col divide-y divide-champagne/[0.12] border-y border-champagne/[0.12] lg:col-span-6"
+          className="flex flex-col divide-y divide-line border-y border-line lg:col-span-8 lg:col-start-3"
         >
           {contatos.map(({ icon: Icon, label, value, sub, href }) => {
             const conteudo = (
               <>
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-champagne/25 bg-olive/70">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/25 bg-gold/[0.05]">
                   <Icon className="h-[17px] w-[17px] text-gold-light" strokeWidth={1.6} />
                 </span>
                 <span className="flex flex-col">

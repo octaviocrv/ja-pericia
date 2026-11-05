@@ -69,3 +69,43 @@ a {
 .watermark-number {
   color: rgba(216, 197, 154, 0.04);
 }
+
+/* Retrato do João no hero. Mobile mantém os valores aprovados; o desktop
+   ganha uma dissolução mais curta e um pouco mais de luz, para a foto não sumir. */
+[data-hero-portrait] {
+  --feather-radial: radial-gradient(ellipse 80% 88% at 52% 34%, #000 80%, transparent 100%);
+  --feather-base: linear-gradient(to bottom, #000 72%, transparent 98%);
+  -webkit-mask-image: var(--feather-radial), var(--feather-base);
+  mask-image: var(--feather-radial), var(--feather-base);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.hero-portrait-img {
+  filter: brightness(1) contrast(1) saturate(0.96) sepia(0.04)
+    drop-shadow(0 0 1.5px rgba(10, 8, 6, 0.75)) drop-shadow(0 0 6px rgba(10, 8, 6, 0.35));
+}
+
+.hero-portrait-shade {
+  background:
+    radial-gradient(ellipse 60% 52% at 50% 26%, transparent 60%, rgba(10, 8, 6, 0.25) 100%),
+    linear-gradient(to bottom, transparent 62%, rgba(8, 8, 8, 0.35) 82%, rgba(8, 8, 8, 0.7) 100%);
+}
+
+@media (min-width: 1024px) {
+  [data-hero-portrait] {
+    --feather-radial: radial-gradient(ellipse 84% 92% at 52% 34%, #000 86%, transparent 100%);
+    --feather-base: linear-gradient(to bottom, #000 80%, transparent 99%);
+  }
+
+  .hero-portrait-img {
+    filter: brightness(1.06) contrast(1.05) saturate(1) sepia(0.03)
+      drop-shadow(0 0 1.5px rgba(10, 8, 6, 0.75)) drop-shadow(0 0 6px rgba(10, 8, 6, 0.35));
+  }
+
+  .hero-portrait-shade {
+    background:
+      radial-gradient(ellipse 60% 52% at 50% 26%, transparent 64%, rgba(10, 8, 6, 0.15) 100%),
+      linear-gradient(to bottom, transparent 70%, rgba(8, 8, 8, 0.2) 86%, rgba(8, 8, 8, 0.5) 100%);
+  }
+}

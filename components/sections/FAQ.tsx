@@ -31,7 +31,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="perguntas" className="relative bg-bg py-14 sm:py-20 md:py-24">
+    <section id="perguntas" className="olive-surface relative py-14 sm:py-20 md:py-24">
       <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-6 px-6 md:px-12 lg:grid-cols-12 lg:gap-14">
         <motion.div
           variants={fadeUp}
@@ -56,7 +56,7 @@ export default function FAQ() {
         </motion.div>
 
         <div className="lg:col-span-8">
-          <div className="flex flex-col divide-y divide-line border-t border-line">
+          <div className="flex flex-col divide-y divide-champagne/[0.14] border-t border-champagne/[0.14]">
             {perguntas.map((item, i) => {
               const isOpen = open === i;
               return (
