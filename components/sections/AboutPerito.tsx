@@ -34,17 +34,16 @@ export default function AboutPerito() {
               fill
               placeholder="blur"
               sizes="(min-width: 1024px) 40vw, 90vw"
-              quality={90}
               className="object-cover object-center"
             />
             <div aria-hidden className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-bg/95 via-bg/45 to-transparent" />
-            <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-3">
-              <div>
-                <p className="text-[17px] font-semibold text-white">{SITE.perito}</p>
-                <p className="mt-0.5 text-[11px] uppercase tracking-[0.16em] text-champagne/85">
-                  {SITE.cargo} · {SITE.crc}
-                </p>
-              </div>
+            {/* container query: a linha do CRC encolhe junto com a largura do card e nunca quebra
+                (o texto mede ~25,6em com esse tracking; 26.2 dá uma folga) */}
+            <div className="absolute inset-x-5 bottom-5 [container-type:inline-size]">
+              <p className="text-[17px] font-semibold text-white">{SITE.perito}</p>
+              <p className="mt-0.5 whitespace-nowrap text-[length:min(11px,calc(100cqw/26.2))] uppercase tracking-[0.16em] text-champagne/85">
+                {SITE.cargo} · {SITE.crc}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -102,7 +101,7 @@ export default function AboutPerito() {
           </ul>
 
           {/* TODO: confirmar se o número da JA Contabilidade pode aparecer aqui */}
-          <p className="mt-6 text-[13.5px] text-white/50">
+          <p className="mt-6 text-[13.5px] text-white/65">
             <span className="font-semibold text-gold">+60 empresas</span> atendidas pela{" "}
             {SITE.empresa}.
           </p>

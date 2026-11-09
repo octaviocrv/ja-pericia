@@ -1,6 +1,5 @@
 "use client";
 
-import ResponsiveCarousel from "@/components/ui/ResponsiveCarousel";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeUp, viewport } from "@/lib/motion";
@@ -54,37 +53,43 @@ export default function HowItWorks() {
           </h2>
         </motion.div>
 
-        <ResponsiveCarousel label="Etapas do atendimento" className="steps-carousel mt-7 sm:mt-10 text-olive-deep">
+        {/* Sem carrossel: no mobile cada etapa é um card compacto (foto ao lado do texto) e todas
+            cabem na largura da tela sem arrastar; sm = 2 colunas, lg = 4 colunas. */}
+        <ol className="mt-7 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {etapas.map((etapa, i) => (
-            <motion.article
+            <motion.li
               key={etapa.title}
               variants={fadeUp}
               custom={i}
               initial="hidden"
               whileInView="show"
               viewport={viewport}
-              className="group relative flex flex-col"
+              className="group grid grid-cols-[minmax(0,38%)_minmax(0,1fr)] items-start gap-4 sm:flex sm:flex-col sm:gap-0"
             >
-              <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_18px_36px_-20px_rgba(33,30,26,0.55)]">
+              <div className="relative aspect-square overflow-hidden rounded-xl shadow-[0_18px_36px_-20px_rgba(33,30,26,0.55)] sm:mb-6 sm:aspect-[4/3] sm:rounded-2xl">
                 <Image
                   src={etapa.image}
                   alt={etapa.alt}
                   fill
-                  sizes="(min-width: 1024px) 270px, (min-width: 640px) 45vw, 90vw"
+                  sizes="(min-width: 1024px) 270px, (min-width: 640px) 45vw, 38vw"
                   className="object-cover transition-transform duration-700 ease-out [filter:saturate(0.8)_sepia(0.12)] group-hover:scale-[1.04]"
                 />
                 <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-olive-deep/35 via-transparent to-transparent" />
               </div>
-              <div className={`border-t pt-6 ${i === 0 ? "border-gold-deep" : "border-gold-deep/40"}`}>
-              <span className="font-serif text-[36px] font-normal leading-none text-gold-deep">
-                {i + 1}
-              </span>
-              <h3 className="mt-3 text-[16px] font-semibold leading-snug tracking-tight text-olive-deep">{etapa.title}</h3>
-              <p className="mt-3 text-[14px] leading-[1.6] text-taupe">{etapa.text}</p>
+              <div className={`min-w-0 border-t pt-3 sm:pt-6 ${i === 0 ? "border-gold-deep" : "border-gold-deep/40"}`}>
+                <span className="font-serif text-[28px] font-normal leading-none text-gold-deep sm:text-[36px]">
+                  {i + 1}
+                </span>
+                <h3 className="mt-2 text-[15px] font-semibold leading-snug tracking-tight text-olive-deep sm:mt-3 sm:text-[16px]">
+                  {etapa.title}
+                </h3>
+                <p className="mt-1.5 text-[13.5px] leading-[1.55] text-taupe sm:mt-3 sm:text-[14px] sm:leading-[1.6]">
+                  {etapa.text}
+                </p>
               </div>
-            </motion.article>
+            </motion.li>
           ))}
-        </ResponsiveCarousel>
+        </ol>
       </div>
     </section>
   );

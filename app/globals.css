@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Poppins", sans-serif;
+  --font-sans: var(--font-poppins), sans-serif;
   --gold: #c8a55c;
   --gold-deep: #9e7d3f;
   --gold-light: #ddc27f;
@@ -156,20 +156,21 @@ section[id] { scroll-margin-top: 110px; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
 .hdr { max-width: 1200px; }
 .hdr-name { white-space: nowrap; }
-.carousel-track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; padding-bottom: 8px; }
-.carousel-track > * { flex: 0 0 88%; min-width: 0; scroll-snap-align: start; }
+/* Mobile: só arrastar/botões, sem barra de rolagem. overflow-y oculto evita a barra vertical
+   que aparecia por causa da sombra das fotos; o padding dá espaço para a sombra não ser cortada. */
+.carousel-track { display: flex; gap: 14px; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 24px; margin-bottom: -16px; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track > * { flex: 0 0 86%; min-width: 0; scroll-snap-align: start; }
 .carousel-button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid currentColor; border-radius: 50%; }
 .carousel-button:disabled { opacity: .3; }
 .area-card { border: 1px solid rgba(200,165,92,.25); border-radius: 12px; padding: 24px; }
-.steps-carousel .carousel-track > * { padding-top: 22px; }
 @media (min-width: 640px) {
   .page-container { width: min(100% - 64px, 1200px); }
-  .carousel-track { display: grid; overflow: visible; padding-bottom: 0; }
+  .carousel-track { display: grid; overflow: visible; padding-bottom: 0; margin-bottom: 0; }
   .areas-carousel .carousel-track { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0; border: 1px solid rgba(200,165,92,.3); border-radius: 12px; overflow: hidden; }
   .area-card { border: 0; border-radius: 0; padding: 28px; }
   .area-card:nth-child(odd) { border-right: 1px solid rgba(200,165,92,.15); }
   .area-card:nth-child(-n+4) { border-bottom: 1px solid rgba(200,165,92,.15); }
-  .steps-carousel .carousel-track { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 32px; }
 }
 @media (min-width: 1024px) {
   .page-container { width: min(100% - 96px, 1200px); }
@@ -177,7 +178,6 @@ section[id] { scroll-margin-top: 110px; }
   .area-card:nth-child(n) { border-right: 0; border-bottom: 0; }
   .area-card:not(:nth-child(3n)) { border-right: 1px solid rgba(200,165,92,.15); }
   .area-card:nth-child(-n+3) { border-bottom: 1px solid rgba(200,165,92,.15); }
-  .steps-carousel .carousel-track { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 32px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html, body { scroll-behavior: auto; }
@@ -186,7 +186,3 @@ section[id] { scroll-margin-top: 110px; }
 .skip-link { position: fixed; top: -100px; left: 20px; z-index: 100; padding: 12px 20px; border-radius: 8px; background: var(--ivory); color: var(--bg); }
 .skip-link:focus { top: 16px; }
 .page-container > *, .page-container.grid > * { min-width: 0; }
-@media (max-width: 639px) {
-  .steps-carousel .carousel-track > * { padding-top: 0; }
-  .steps-carousel .carousel-track > * > div:first-child { margin-bottom: 20px; aspect-ratio: 16 / 10; }
-}

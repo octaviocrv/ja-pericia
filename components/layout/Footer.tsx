@@ -15,12 +15,13 @@ export default function Footer() {
               <p className="text-[15px] font-semibold tracking-tight text-white">
                 {SITE.perito}
               </p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-champagne sm:mt-0.5 sm:tracking-[0.16em]">
+              {/* uma linha só: no mobile a fonte encolhe com a tela (100vw - 48px de padding; texto ~25,3em) */}
+              <p className="mt-1 whitespace-nowrap text-[length:min(10px,calc((100vw-48px)/25.8))] uppercase tracking-[0.14em] text-champagne sm:mt-0.5 sm:text-[10px] sm:tracking-[0.16em]">
                 {SITE.cargo} · {SITE.crc}
               </p>
             </div>
           </div>
-          <div className="flex w-full flex-col items-center gap-1 border-t border-line pt-5 text-[11px] leading-[1.5] text-white/40 sm:w-auto sm:items-end sm:border-t-0 sm:pt-0 sm:text-[12px]">
+          <div className="flex w-full flex-col items-center gap-1 border-t border-line pt-5 text-[11px] leading-[1.5] text-white/60 sm:w-auto sm:items-end sm:border-t-0 sm:pt-0 sm:text-[12px]">
             <span>© 2026 {SITE.empresa}. Todos os direitos reservados.</span>
           </div>
         </div>

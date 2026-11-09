@@ -91,7 +91,7 @@ export default function FinalCTA() {
                   <Icon className="h-[17px] w-[17px] text-gold-light" strokeWidth={1.6} />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-[11px] uppercase tracking-[0.14em] text-white/45">{label}</span>
+                  <span className="text-[11px] uppercase tracking-[0.14em] text-white/60">{label}</span>
                   <span className="mt-0.5 break-words [overflow-wrap:anywhere] text-[14px] font-medium sm:text-[15px] text-white">{value}</span>
                   {sub && <span className="mt-0.5 text-[13px] text-muted">{sub}</span>}
                 </span>

@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
+import { EB_Garamond, Poppins } from "next/font/google";
 import "./globals.css";
 import MotionPreferences from "@/components/ui/MotionPreferences";
+
+// Fontes servidas pelo próprio site (next/font): sem CSS externo bloqueando a renderização.
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-poppins",
+});
+
+const garamond = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-garamond",
+});
 
 export const metadata: Metadata = {
   title: "João Firmino | Perito Contábil · JA Perícia",
@@ -14,15 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="pt-BR" className={`${poppins.variable} ${garamond.variable}`}>
       <body className="bg-bg font-sans text-fg antialiased">
         <a href="#sobre" className="skip-link">Pular para o conteúdo</a>
         <MotionPreferences>{children}</MotionPreferences>

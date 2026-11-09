@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Button from "@/components/ui/Button";
-import joaoFoto from "@/app/assets/joao-firmino-frente.svg";
+import joaoFoto from "@/app/assets/joao-firmino-frente.webp";
 import fundoPericia from "@/app/assets/fundo-pericia.jpg";
 import heroDesktop from "@/app/assets/hero-desktop.jpg";
 import bracoFrente from "@/app/assets/hero-braco-frente.png";
@@ -66,8 +66,9 @@ function HeroDesktop() {
           alt="João Firmino, perito contábil, de braços cruzados no escritório da JA Perícia"
           fill
           priority
-          quality={90}
-          sizes="100vw"
+          quality={85}
+          // "1px" fora do desktop: o preload no celular baixa só uma miniatura de poucos bytes
+          sizes="(min-width: 1280px) 100vw, 1px"
           className="object-cover"
         />
         {/* emenda suave com a próxima seção */}
@@ -197,7 +198,7 @@ function HeroDesktop() {
           alt=""
           aria-hidden
           priority
-          sizes="5vw"
+          sizes="(min-width: 1280px) 4vw, 1px"
           className="pointer-events-none absolute max-w-none"
           style={{ left: u(912), top: u(466), width: u(63), height: u(334) }}
         />
@@ -225,7 +226,9 @@ export default function Hero() {
             alt=""
             fill
             priority
-            sizes="100vw"
+            quality={60}
+            // fundo desfocado: qualidade baixa não aparece; no desktop (>= xl) não é exibido
+            sizes="(min-width: 1280px) 1px, 100vw"
             className="object-cover object-top opacity-95 blur-[1px]"
           />
           {/* overlay escuro: o fundo vira só atmosfera */}
@@ -267,7 +270,7 @@ export default function Hero() {
             alt=""
             fill
             priority
-            sizes="(min-width: 640px) 64vw, 100vw"
+            sizes="(min-width: 1280px) 1px, (min-width: 640px) 64vw, 112vw"
             // temperatura levemente quente; fio escuro amacia a borda do recorte (filtro em globals.css)
             className="hero-portrait-img object-cover object-top"
           />

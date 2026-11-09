@@ -11,9 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "system-ui", "sans-serif"],
-        garamond: ["\"EB Garamond\"", "Georgia", "serif"],
-        display: ["\"Playfair Display\"", "Georgia", "serif"],
+        sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
+        garamond: ["var(--font-garamond)", "Georgia", "serif"],
       },
       colors: {
         white: "#F4EFE5",
