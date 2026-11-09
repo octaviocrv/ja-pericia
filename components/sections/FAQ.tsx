@@ -14,8 +14,8 @@ const perguntas = [
     a: "Não. Na primeira conversa eu entendo o caso, avalio se existe uma questão técnica a ser demonstrada e indico o trabalho adequado. A proposta de honorários só vem depois, por escrito.",
   },
   {
-    q: "Qual a diferença entre perito do juízo e assistente técnico?",
-    a: "O perito do juízo é nomeado pelo juiz e atua de forma imparcial. O assistente técnico é indicado por uma das partes para acompanhar a perícia, formular quesitos e opinar sobre o laudo oficial. Eu atuo nas duas frentes, com o mesmo rigor.",
+    q: "Como a perícia contábil contribui para o meu caso?",
+    a: "A perícia examina documentos, verifica cálculos e identifica inconsistências para esclarecer os fatos com base técnica. As conclusões são apresentadas em laudos e pareceres fundamentados, oferecendo elementos objetivos para decisões judiciais e extrajudiciais.",
   },
   {
     q: "Em que momento do processo devo procurar um perito?",
@@ -42,9 +42,9 @@ export default function FAQ() {
           className="lg:col-span-4"
         >
           <div className="lg:sticky lg:top-32">
-            <SectionLabel>Perguntas frequentes</SectionLabel>
-            <h2 className="text-[1.9rem] font-semibold leading-[1.2] text-white sm:text-[2.2rem]">
-              Ficou com alguma dúvida sobre o seu caso?
+            <SectionLabel>PERGUNTAS FREQUENTES</SectionLabel>
+            <h2 className="font-serif font-normal text-[1.9rem] leading-[1.2] text-white sm:text-[2.2rem]">
+              Dúvidas <em className="text-gold-light">comuns.</em>
             </h2>
             <p className="mt-4 text-[15px] leading-7 text-muted">
               Se a sua dúvida não estiver aqui, me chame. A conversa resolve mais rápido.

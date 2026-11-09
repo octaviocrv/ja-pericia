@@ -22,7 +22,6 @@ export default function Footer() {
           </div>
           <div className="flex w-full flex-col items-center gap-1 border-t border-line pt-5 text-[11px] leading-[1.5] text-white/40 sm:w-auto sm:items-end sm:border-t-0 sm:pt-0 sm:text-[12px]">
             <span>© 2026 {SITE.empresa}. Todos os direitos reservados.</span>
-            <span>CNPJ {SITE.cnpj}</span>
           </div>
         </div>
       </div>

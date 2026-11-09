@@ -5,7 +5,16 @@ import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
 import { fadeUp, viewport } from "@/lib/motion";
 import { SITE, whatsappLink, WHATSAPP_MENSAGENS } from "@/lib/config";
 
-// Seção final: onde estou + contato + CTA.
+// Ícone oficial do WhatsApp (o lucide não tem marcas)
+function WhatsAppIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41" />
+    </svg>
+  );
+}
+
+// Seção final: CTA (esquerda) + onde estou / contatos (direita).
 export default function FinalCTA() {
   const contatos = [
     {
@@ -36,14 +45,44 @@ export default function FinalCTA() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-page grid-cols-1 gap-8 px-6 md:px-12 lg:grid-cols-12 lg:gap-14">
-        <motion.ul
+      <div className="relative mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 md:px-12 lg:grid-cols-12 lg:gap-14">
+        <motion.div
           variants={fadeUp}
           custom={0}
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="flex flex-col divide-y divide-line border-y border-line lg:col-span-8 lg:col-start-3"
+          className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left"
+        >
+          <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold">Contato</span>
+
+          <h2 className="font-serif font-normal mt-5 text-[2.35rem] leading-[1.08] tracking-[-0.01em] text-white sm:text-[3.1rem] lg:text-[3.4rem]">
+            Seu caso merece <br className="hidden sm:block" />
+            uma análise <em className="font-normal italic text-[#DCC28A]">precisa</em>.
+          </h2>
+
+          <p className="mt-5 max-w-[30rem] text-[15px] leading-[1.75] text-white/80 sm:text-[16px]">
+            Envie as informações iniciais e receba uma avaliação técnica antes de qualquer proposta.
+          </p>
+
+          <a
+            href={whatsappLink(WHATSAPP_MENSAGENS.padrao)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex min-h-[52px] items-center justify-center gap-3 rounded-lg bg-[linear-gradient(100deg,#E3C789_0%,#D2B274_50%,#B9965C_100%)] px-7 text-[15px] font-semibold text-ink shadow-[0_14px_40px_-10px_rgba(200,165,92,0.55)] transition-transform duration-200 hover:-translate-y-px sm:px-8"
+          >
+            <WhatsAppIcon className="h-[17px] w-[17px]" />
+            Apresentar um caso pelo WhatsApp
+          </a>
+        </motion.div>
+
+        <motion.ul
+          variants={fadeUp}
+          custom={1}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          className="flex flex-col divide-y divide-line border-y border-line lg:col-span-5"
         >
           {contatos.map(({ icon: Icon, label, value, sub, href }) => {
             const conteudo = (

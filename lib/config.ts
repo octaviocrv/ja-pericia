@@ -7,22 +7,15 @@ export const SITE = {
   // Protagonista da página; a JA Perícia entra como assinatura de apoio
   perito: "João Firmino",
   cargo: "Perito Contábil",
-  // TODO: registro profissional (CRC) e inscrição no CNPC
-  crc: "CRC [a confirmar]",
-  // TODO: confirmar cidade-base
-  cidade: "[Cidade]",
-  estado: "[UF]",
-  // TODO: endereço do escritório (deixar vazio para mostrar só "atendimento em todo o Brasil")
-  endereco: "[Endereço do escritório]",
-  // TODO: e-mail de contato
-  email: "[email@japericia.com.br]",
+  crc: "CRC/MG: 088990/0-3",
+  cidade: "Contagem",
+  estado: "MG",
+  endereco: "R. Cel. Durval de Barros, 842 — Sala 206",
+  email: "jacontabilidadeepericia@gmail.com",
   // TODO: perfil de Instagram da JA Perícia (ou do perito)
   instagramHandle: "@japericia",
   instagramUrl: "https://instagram.com/",
-  // TODO: número real de WhatsApp, formato 55DDDNUMERO
-  whatsappNumber: "5500000000000",
-  // TODO: CNPJ real da JA Contabilidade e Perícia
-  cnpj: "00.000.000/0001-00",
+  whatsappNumber: "553131509984",
 };
 
 export function whatsappLink(message: string) {
@@ -32,5 +25,5 @@ export function whatsappLink(message: string) {
 export const WHATSAPP_MENSAGENS = {
   padrao: "Olá! Gostaria de apresentar um caso para análise pericial.",
   duvida: "Olá! Tenho uma dúvida sobre perícia contábil e gostaria de conversar.",
-  advogado: "Olá! Sou advogado(a) e gostaria de conversar sobre assistência técnica pericial em um processo.",
+  advogado: "Olá! Sou advogado(a) e gostaria de apresentar um processo para análise pericial contábil.",
 };

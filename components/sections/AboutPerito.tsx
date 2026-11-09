@@ -58,24 +58,26 @@ export default function AboutPerito() {
           viewport={viewport}
           className="order-1 flex flex-col lg:order-2 lg:col-span-7"
         >
-          <SectionLabel>Quem sou eu</SectionLabel>
-          <h2 className="text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.6rem]">
-            Olá, eu sou {SITE.perito}.
+          <SectionLabel>SOBRE</SectionLabel>
+          <h2 className="font-serif font-normal text-[2.5rem] leading-[1.12] tracking-[-0.02em] text-white sm:text-[3rem]">
+            Números que sustentam <em className="font-normal text-gold-light">decisões.</em>
           </h2>
           <p className="mt-6 text-[16px] leading-[1.8] text-white/80 sm:text-[17px]">
-            Há quase 20 anos, construo minha trajetória na perícia contábil com base em
-            responsabilidade técnica, precisão e confiança. Ao longo desse caminho, tive a
-            oportunidade de participar de trabalhos relevantes, atuar ao lado de grandes
-            profissionais e contribuir em casos que exigiam análise criteriosa e fundamentação
-            sólida.
+            Sou {SITE.perito}, perito contábil à frente da {SITE.marca}. Há quase 20 anos,
+            desenvolvo minha trajetória com responsabilidade técnica, precisão e rigor analítico,
+            contribuindo para a solução de questões que exigem exame criterioso e fundamentação sólida.
           </p>
           <p className="mt-4 text-[16px] leading-[1.8] text-white/80 sm:text-[17px]">
-            Hoje, sigo de forma independente, colocando toda essa experiência a serviço de clientes
-            em diferentes regiões do Brasil.
+            Atuo como perito contábil em demandas
+            judiciais e extrajudiciais em todo o Brasil. Transformo documentos e informações
+            financeiras complexas em laudos e pareceres objetivos, tecnicamente fundamentados e
+            aptos a subsidiar decisões.
           </p>
           <p className="mt-4 text-[16px] leading-[1.8] text-muted sm:text-[17px]">
-            Conduzo pessoalmente cada caso, do exame dos autos à assinatura do laudo, com o respaldo
-            da estrutura da {SITE.marca}.
+            Conduzo pessoalmente cada trabalho, do primeiro contato à entrega do laudo, com atuação
+            independente e o respaldo da estrutura da {SITE.marca}. Aliando clareza na comunicação
+            e consistência técnica, apresento conclusões compreensíveis a advogados, magistrados e
+            clientes, preservando o rigor que cada caso exige.
           </p>
 
           <ul className="mt-7 grid grid-cols-1 gap-3 border-t border-line pt-6 sm:mt-9 sm:pt-8 sm:grid-cols-3 sm:gap-5">

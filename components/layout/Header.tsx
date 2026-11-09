@@ -26,33 +26,34 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="fixed left-1/2 top-0 z-50 w-full -translate-x-1/2 px-3 pt-3 sm:px-4 sm:pt-4">
+    <div className="hdr-wrap fixed left-1/2 top-0 z-50 w-full -translate-x-1/2 px-3 pt-3 sm:px-4 sm:pt-4">
       <motion.header
         initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto flex max-w-page items-center justify-between gap-3 rounded-2xl sm:gap-6 border transition-all duration-300"
+        className={`hdr relative mx-auto flex max-w-page items-center justify-between gap-3 rounded-2xl border border-[rgba(244,239,229,0.14)] transition-all duration-300 sm:gap-6 ${
+          scrolled
+            ? "bg-[rgba(18,17,16,0.92)] px-[clamp(14px,4vw,20px)] py-3"
+            : "bg-[rgba(26,25,23,0.82)] px-[clamp(14px,4vw,22px)] py-4"
+        }`}
         style={{
-          padding: scrolled ? "12px clamp(14px, 4vw, 20px)" : "16px clamp(14px, 4vw, 22px)",
-          background: scrolled ? "rgba(18,17,16,0.92)" : "rgba(26,25,23,0.82)",
-          borderColor: "rgba(244,239,229,0.14)",
           boxShadow: "0 18px 40px -18px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.05)",
           backdropFilter: "blur(16px)",
         }}
       >
-        <a href="#" className="flex min-w-0 items-center gap-3 leading-none">
-          <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-gold/60 shadow-[0_0_0_3px_rgba(8,8,8,0.9)]">
+        <a href="#" className="hdr-brand flex min-w-0 items-center gap-3 leading-none">
+          <span className="hdr-logo relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-gold/60 shadow-[0_0_0_3px_rgba(8,8,8,0.9)]">
             <Image src={logo} alt="Logo JA" fill sizes="44px" className="object-cover" priority />
           </span>
           <span className="flex min-w-0 flex-col">
-            <span className="text-[18px] font-semibold tracking-tight text-white">{SITE.perito}</span>
-            <span className="mt-1 whitespace-nowrap text-[length:min(2.35vw,10px)] uppercase tracking-[0.12em] text-champagne sm:tracking-[0.18em]">
+            <span className="hdr-name text-[18px] font-semibold tracking-tight text-white">{SITE.perito}</span>
+            <span className="hdr-sub mt-1 whitespace-nowrap text-[length:min(2.35vw,10px)] uppercase tracking-[0.12em] text-champagne sm:tracking-[0.18em]">
               {SITE.cargo} - {SITE.marca}
             </span>
           </span>
         </a>
 
-        <nav className="hidden flex-1 items-center justify-center gap-1 md:flex">
+        <nav className="hdr-nav hidden flex-1 items-center justify-center gap-1 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -69,7 +70,7 @@ export default function Header() {
             href={whatsappLink(WHATSAPP_MENSAGENS.padrao)}
             target="_blank"
             rel="noopener noreferrer"
-            className="brand-gradient inline-flex items-center rounded-full px-5 py-2.5 text-[14px] font-medium text-ink transition-transform hover:-translate-y-px"
+            className="hdr-cta brand-gradient inline-flex items-center rounded-full px-5 py-2.5 text-[14px] font-medium text-ink transition-transform hover:-translate-y-px"
           >
             Apresentar um caso
           </a>

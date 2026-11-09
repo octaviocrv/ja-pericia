@@ -1,95 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calculator, FileSearch, Handshake, Landmark } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { fadeUp, viewport } from "@/lib/motion";
 
-// Junta "Problema", "Áreas de atuação" e "Para quem é" em uma seção só.
-const casos = [
-  {
-    icon: Landmark,
-    title: "Revisão de contratos bancários",
-    text: "Juros, encargos e tarifas recalculados para mostrar quanto realmente é devido.",
-    para: "Empresas e pessoas físicas",
-  },
-  {
-    icon: Handshake,
-    title: "Saída de sócio e apuração de haveres",
-    text: "Quanto vale a parte de cada sócio, com balanço de determinação fundamentado.",
-    para: "Sócios e empresas",
-  },
-  {
-    icon: Calculator,
-    title: "Cálculos de sentença",
-    text: "Liquidação, atualização de valores e conferência dos cálculos da outra parte.",
-    para: "Advogados e partes",
-  },
-  {
-    icon: FileSearch,
-    title: "Contestar ou acompanhar um laudo",
-    text: "Assistência técnica: quesitos, acompanhamento da perícia e parecer sobre o laudo oficial.",
-    para: "Advogados e escritórios",
-  },
+const areas = [
+  { title: "Revisão de contratos bancários", text: "Análise de juros, encargos e capitalização em financiamentos e empréstimos." },
+  { title: "Cálculos trabalhistas", text: "Liquidação de sentença, verbas rescisórias, horas extras e reflexos." },
+  { title: "Apuração de haveres", text: "Dissolução societária, retirada de sócios e avaliação de participações." },
+  { title: "Lucros cessantes e danos", text: "Quantificação de prejuízos financeiros com base documental." },
+  { title: "Pareceres técnicos", text: "Exame criterioso de laudos e elaboração de pareceres com fundamentação contábil." },
+  { title: "Perícia extrajudicial", text: "Análises contábeis para negociações, auditorias e prevenção de litígios." },
 ];
 
 export default function WhenYouNeed() {
   return (
-    <section id="atuacao" className="taupe-surface relative py-14 sm:py-20 md:py-24">
+    <section id="atuacao" aria-labelledby="atuacao-title" className="relative bg-[#0c0b09] py-16 md:pb-14 md:pt-[88px]">
       <div className="mx-auto w-full max-w-page px-6 md:px-12">
-        <motion.div
-          variants={fadeUp}
-          custom={0}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-          className="max-w-[680px]"
-        >
-          <SectionLabel>Quando você precisa de mim</SectionLabel>
-          <h2 className="text-[2rem] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.6rem]">
-            <span className="block">Discordar de um número não basta.</span>
-            <span className="block">É preciso provar o número correto.</span>
-          </h2>
-          <p className="mt-5 text-[16px] leading-[1.75] text-muted sm:text-[17px]">
-            Em situações que exigem precisão, ofereço uma análise técnica, imparcial e
-            fundamentada para esclarecer os fatos e sustentar decisões com segurança.
+        <motion.div variants={fadeUp} custom={0} initial="hidden" whileInView="show" viewport={viewport}
+          className="grid gap-6 lg:grid-cols-[1.65fr_1fr] lg:items-end lg:gap-16">
+          <div>
+            <SectionLabel>Áreas de atuação</SectionLabel>
+            <h2 id="atuacao-title" className="font-serif font-normal text-[2rem] leading-[1.12] tracking-[-0.02em] text-white sm:text-[2.6rem]">
+              Perícia em cada <span className="text-gold-light">detalhe.</span>
+            </h2>
+          </div>
+          <p className="max-w-[380px] text-[15px] leading-[1.75] text-muted lg:pb-1">
+            Perícia contábil judicial e extrajudicial, com rigor técnico e fundamentação sólida para esclarecer o seu caso.
           </p>
         </motion.div>
-
-        <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-12 sm:grid-cols-2 sm:gap-5">
-          {casos.map(({ icon: Icon, title, text, para }, i) => (
-            <motion.div
-              key={title}
-              variants={fadeUp}
-              custom={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={viewport}
-              className="flex flex-col rounded-[24px] border border-champagne/[0.12] bg-bg/40 p-5 transition-colors duration-300 hover:border-gold/30 sm:p-8"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-olive ring-1 ring-gold/20">
-                <Icon className="h-5 w-5 text-gold" strokeWidth={1.8} />
-              </span>
-              <h3 className="mt-5 text-[1.15rem] font-semibold tracking-tight text-white">{title}</h3>
-              <p className="mt-2 text-[15px] leading-[1.65] text-muted">{text}</p>
-              <p className="mt-5 border-t border-champagne/[0.12] pt-4 text-[11px] uppercase tracking-[0.14em] text-champagne/80">
-                Para: {para}
-              </p>
-            </motion.div>
+        <motion.div variants={fadeUp} custom={1} initial="hidden" whileInView="show" viewport={viewport}
+          className="mt-10 grid overflow-hidden rounded-[11px] border border-gold/30 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+          {areas.map(({ title, text }, i) => (
+            <article key={title}
+              className="border-gold/15 px-7 py-8 [&:not(:last-child)]:border-b sm:min-h-[195px] sm:[&:not(:last-child)]:border-b-0 sm:[&:nth-child(-n+4)]:border-b sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(-n+4)]:border-b-0 lg:[&:nth-child(odd)]:border-r-0 lg:[&:nth-child(3n+1)]:border-r lg:[&:nth-child(3n+2)]:border-r">
+              <span className="text-[12px] font-medium leading-none tracking-[0.14em] text-gold">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-3 text-[1.15rem] font-semibold leading-snug tracking-tight text-white">{title}</h3>
+              <p className="mt-3 text-[14.5px] leading-6 text-muted">{text}</p>
+            </article>
           ))}
-        </div>
-
-        <motion.p
-          variants={fadeUp}
-          custom={4}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-          className="mt-6 text-[14px] leading-6 text-white/50"
-        >
-          Também elaboro laudos e pareceres extrajudiciais e arbitrais, para negociações e decisões
-          antes que exista um processo.
-        </motion.p>
+        </motion.div>
       </div>
     </section>
   );
