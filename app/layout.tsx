@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MotionPreferences from "@/components/ui/MotionPreferences";
 
 export const metadata: Metadata = {
   title: "João Firmino | Perito Contábil · JA Perícia",
@@ -22,7 +23,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-bg font-sans text-fg antialiased">{children}</body>
+      <body className="bg-bg font-sans text-fg antialiased">
+        <a href="#sobre" className="skip-link">Pular para o conteúdo</a>
+        <MotionPreferences>{children}</MotionPreferences>
+      </body>
     </html>
   );
 }

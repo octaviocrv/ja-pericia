@@ -31,8 +31,8 @@ export default function FAQ() {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="perguntas" className="olive-surface relative py-14 sm:py-20 md:py-24">
-      <div className="mx-auto grid w-full max-w-page grid-cols-1 gap-6 px-6 md:px-12 lg:grid-cols-12 lg:gap-14">
+    <section id="perguntas" className="olive-surface relative section-space">
+      <div className="page-container grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
         <motion.div
           variants={fadeUp}
           custom={0}
@@ -43,7 +43,7 @@ export default function FAQ() {
         >
           <div className="lg:sticky lg:top-32">
             <SectionLabel>PERGUNTAS FREQUENTES</SectionLabel>
-            <h2 className="font-serif font-normal text-[1.9rem] leading-[1.2] text-white sm:text-[2.2rem]">
+            <h2 className="section-title text-white">
               Dúvidas <em className="text-gold-light">comuns.</em>
             </h2>
             <p className="mt-4 text-[15px] leading-7 text-muted">
@@ -69,6 +69,8 @@ export default function FAQ() {
                   viewport={viewport}
                 >
                   <button
+                    id={`faq-question-${i}`}
+                    aria-controls={`faq-answer-${i}`}
                     onClick={() => setOpen(isOpen ? -1 : i)}
                     className="flex w-full items-center justify-between gap-4 py-4 text-left sm:py-5"
                     aria-expanded={isOpen}
@@ -84,6 +86,9 @@ export default function FAQ() {
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
+                        id={`faq-answer-${i}`}
+                        role="region"
+                        aria-labelledby={`faq-question-${i}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

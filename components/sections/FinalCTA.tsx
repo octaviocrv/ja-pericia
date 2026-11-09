@@ -36,7 +36,7 @@ export default function FinalCTA() {
   ];
 
   return (
-    <section id="contato" className="relative overflow-hidden bg-bg py-14 sm:py-20 md:py-24">
+    <section id="contato" className="relative overflow-hidden bg-bg section-space">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -45,7 +45,7 @@ export default function FinalCTA() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-page grid-cols-1 items-center gap-12 px-6 md:px-12 lg:grid-cols-12 lg:gap-14">
+      <div className="relative page-container grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
         <motion.div
           variants={fadeUp}
           custom={0}
@@ -56,7 +56,7 @@ export default function FinalCTA() {
         >
           <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-gold">Contato</span>
 
-          <h2 className="font-serif font-normal mt-5 text-[2.35rem] leading-[1.08] tracking-[-0.01em] text-white sm:text-[3.1rem] lg:text-[3.4rem]">
+          <h2 className="section-title text-white">
             Seu caso merece <br className="hidden sm:block" />
             uma análise <em className="font-normal italic text-[#DCC28A]">precisa</em>.
           </h2>
@@ -69,7 +69,7 @@ export default function FinalCTA() {
             href={whatsappLink(WHATSAPP_MENSAGENS.padrao)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex min-h-[52px] items-center justify-center gap-3 rounded-lg bg-[linear-gradient(100deg,#E3C789_0%,#D2B274_50%,#B9965C_100%)] px-7 text-[15px] font-semibold text-ink shadow-[0_14px_40px_-10px_rgba(200,165,92,0.55)] transition-transform duration-200 hover:-translate-y-px sm:px-8"
+            className="mt-7 inline-flex w-full sm:w-auto min-h-[52px] items-center justify-center gap-3 rounded-lg bg-[linear-gradient(100deg,#E3C789_0%,#D2B274_50%,#B9965C_100%)] px-4 text-[14px] sm:text-[15px] font-semibold text-ink shadow-[0_14px_40px_-10px_rgba(200,165,92,0.55)] transition-transform duration-200 hover:-translate-y-px sm:px-8"
           >
             <WhatsAppIcon className="h-[17px] w-[17px]" />
             Apresentar um caso pelo WhatsApp
@@ -90,9 +90,9 @@ export default function FinalCTA() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/25 bg-gold/[0.05]">
                   <Icon className="h-[17px] w-[17px] text-gold-light" strokeWidth={1.6} />
                 </span>
-                <span className="flex flex-col">
+                <span className="flex min-w-0 flex-col">
                   <span className="text-[11px] uppercase tracking-[0.14em] text-white/45">{label}</span>
-                  <span className="mt-0.5 text-[15px] font-medium text-white">{value}</span>
+                  <span className="mt-0.5 break-words [overflow-wrap:anywhere] text-[14px] font-medium sm:text-[15px] text-white">{value}</span>
                   {sub && <span className="mt-0.5 text-[13px] text-muted">{sub}</span>}
                 </span>
               </>

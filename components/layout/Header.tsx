@@ -25,6 +25,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
+    const resize = () => { if (window.innerWidth >= 1024) setMenuOpen(false); };
+    window.addEventListener("keydown", close);
+    window.addEventListener("resize", resize);
+    return () => { window.removeEventListener("keydown", close); window.removeEventListener("resize", resize); };
+  }, [menuOpen]);
+
   return (
     <div className="hdr-wrap fixed left-1/2 top-0 z-50 w-full -translate-x-1/2 px-3 pt-3 sm:px-4 sm:pt-4">
       <motion.header
@@ -53,7 +62,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hdr-nav hidden flex-1 items-center justify-center gap-1 md:flex">
+        <nav aria-label="Navegação principal" className="hdr-nav hidden flex-1 items-center justify-center gap-1 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -65,7 +74,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center md:flex">
+        <div className="hidden items-center lg:flex">
           <a
             href={whatsappLink(WHATSAPP_MENSAGENS.padrao)}
             target="_blank"
@@ -77,9 +86,11 @@ export default function Header() {
         </div>
 
         <button
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={() => setMenuOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-gold md:hidden"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-gold lg:hidden"
         >
           {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-6 w-6" strokeWidth={1.8} />}
         </button>
@@ -91,9 +102,9 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="absolute right-0 top-[calc(100%+10px)] w-[min(88vw,300px)] rounded-2xl border border-line bg-card p-3 shadow-card md:hidden"
+              className="absolute right-0 top-[calc(100%+10px)] w-[min(88vw,300px)] rounded-2xl border border-line bg-card p-3 shadow-card lg:hidden"
             >
-              <nav className="flex flex-col gap-1">
+              <nav id="mobile-navigation" aria-label="Navegação mobile" className="flex flex-col gap-1">
                 {navItems.map((item) => (
                   <a
                     key={item.href}

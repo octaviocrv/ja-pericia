@@ -1,5 +1,6 @@
 "use client";
 
+import ResponsiveCarousel from "@/components/ui/ResponsiveCarousel";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeUp, viewport } from "@/lib/motion";
@@ -37,8 +38,8 @@ const etapas = [
 
 export default function HowItWorks() {
   return (
-    <section id="processo" className="ivory-surface relative py-14 sm:py-20 md:py-24">
-      <div className="mx-auto w-full max-w-page px-6 md:px-12">
+    <section id="processo" className="ivory-surface relative section-space">
+      <div className="page-container">
         <motion.div
           variants={fadeUp}
           custom={0}
@@ -48,14 +49,14 @@ export default function HowItWorks() {
           className="max-w-[900px]"
         >
           <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.2em] text-gold-deep">Como funciona</p>
-          <h2 className="font-serif text-[38px] font-normal leading-[1.12] tracking-[-0.025em] text-olive-deep sm:text-[48px]">
+          <h2 className="section-title text-olive-deep">
             Do primeiro contato ao <em className="font-normal text-gold-deep">laudo.</em>
           </h2>
         </motion.div>
 
-        <ol className="mt-10 grid grid-cols-1 gap-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-9">
+        <ResponsiveCarousel label="Etapas do atendimento" className="steps-carousel mt-7 sm:mt-10 text-olive-deep">
           {etapas.map((etapa, i) => (
-            <motion.li
+            <motion.article
               key={etapa.title}
               variants={fadeUp}
               custom={i}
@@ -81,9 +82,9 @@ export default function HowItWorks() {
               <h3 className="mt-3 text-[16px] font-semibold leading-snug tracking-tight text-olive-deep">{etapa.title}</h3>
               <p className="mt-3 text-[14px] leading-[1.6] text-taupe">{etapa.text}</p>
               </div>
-            </motion.li>
+            </motion.article>
           ))}
-        </ol>
+        </ResponsiveCarousel>
       </div>
     </section>
   );
